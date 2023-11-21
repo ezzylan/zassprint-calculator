@@ -15,7 +15,7 @@ print("Welcome to ZassPrint Calculator!")
 
 while True:
     printing_color_prompt = Bullet(
-        prompt="\nColor type?",
+        prompt="\nColor type? (Select Skip to show total price):",
         choices=["Black N White", "Color", "Skip"],
         bullet=">",
         margin=2,
