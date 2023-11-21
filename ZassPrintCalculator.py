@@ -68,3 +68,4 @@ if laminate_copies[1][1]:
 total_price += laminate_price
 
 print("-" * 30 + "\nTotal: RM" + str(round(total_price, 2)))
+input("Press Enter to exit...")
