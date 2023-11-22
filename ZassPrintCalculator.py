@@ -1,4 +1,4 @@
-from rebullet import Bullet, Numbers, colors, VerticalPrompt
+from rebullet import Bullet, Numbers, colors, VerticalPrompt, YesNo
 
 A4_BLACK_WHITE = 0.1
 A3_BLACK_WHITE = 0.5
@@ -55,17 +55,21 @@ while True:
         printing_price = A4_COLOR if printing[0][1] == "A4" else A3_COLOR
     total_price += printing_price * printing[1][1]
 
-print("\nHow many copies are laminated?")
-laminate_copies_prompt = VerticalPrompt(
-    [Numbers("A4: ", type=int), Numbers("A3: ", type=int)], spacing=0
-)
-laminate_copies = laminate_copies_prompt.launch()
+laminate_bool_prompt = YesNo("Are any copies laminated? ", default="n")
+laminate_bool = laminate_bool_prompt.launch()
 
-if laminate_copies[0][1]:
-    laminate_price += A4_LAMINATE * laminate_copies[0][1]
-if laminate_copies[1][1]:
-    laminate_price += A3_LAMINATE * laminate_copies[1][1]
-total_price += laminate_price
+if laminate_bool:
+    print("\nHow many copies are laminated?")
+    laminate_copies_prompt = VerticalPrompt(
+        [Numbers("A4: ", type=int), Numbers("A3: ", type=int)], spacing=0
+    )
+    laminate_copies = laminate_copies_prompt.launch()
+
+    if laminate_copies[0][1]:
+        laminate_price += A4_LAMINATE * laminate_copies[0][1]
+    if laminate_copies[1][1]:
+        laminate_price += A3_LAMINATE * laminate_copies[1][1]
+    total_price += laminate_price
 
 print("-" * 30 + "\nTotal: RM" + str(round(total_price, 2)))
 input("Press Enter to exit...")
