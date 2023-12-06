@@ -1,3 +1,3 @@
-# ZassPrint Calculator
+# ZassPrint Calculator CLI
 
-A Python script that acts as a specialized calculator for the printing service [ZassPrint](https://zassprint.com/).
+A Python CLI that acts as a specialized calculator for the printing service [ZassPrint](https://zassprint.com/).
